@@ -1,0 +1,13 @@
+name: Hit Web Page Cron Job
+
+on:
+  schedule:
+    - cron: '*/13 * * * *'    # Runs every 13 minutes, adjust as needed
+
+jobs:
+  hit-url:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Curl the web page
+        run: curl -s https://onebyte-app-server.onrender.com/> /dev/null
