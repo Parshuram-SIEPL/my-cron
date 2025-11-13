@@ -2,7 +2,8 @@ name: Hit Web Page Cron Job
 
 on:
   schedule:
-    - cron: '*/13 * * * *'    # Runs every 13 minutes, adjust as needed
+   # - cron: '*/13 * * * *'    # Runs every 13 minutes, adjust as needed
+   - cron: '0 0 * * *' # Runs once per day , adjust as needed
 
 jobs:
   hit-url:
