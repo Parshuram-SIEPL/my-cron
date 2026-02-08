@@ -1,14 +1,25 @@
 name: Hit Web Page Cron Job
-
 on:
   schedule:
-    - cron: '*/10 * * * *'    # Runs every 10 minutes, adjust as needed
-   #- cron: '0 0 * * *' # Runs once per day , adjust as needed
+    - cron: '*/10 * * * *'    # Runs every 10 minutes
+   #- cron: '0 0 * * *' # Runs once per day, adjust as needed
+  workflow_dispatch:  # Allows manual trigger
 
 jobs:
   hit-url:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Curl the web page
-        run: curl -s https://onebyte-app-server.onrender.com/> /dev/null
+      - name: Curl OneByte App Server
+        run: |
+          echo "Hitting OneByte App Server..."
+          curl -s https://onebyte-app-server.onrender.com/ > /dev/null
+          echo "✅ OneByte App Server pinged"
+      
+      - name: Curl Trading Monitor
+        run: |
+          echo "Hitting Trading Monitor..."
+          curl -s https://trading-setup-monitor.onrender.com/ > /dev/null
+          echo "✅ Trading Monitor pinged"
+      
+      - name: Job Complete
+        run: echo "🎯 Both services pinged successfully at $(date)"
