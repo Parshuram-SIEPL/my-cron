@@ -20,6 +20,11 @@ jobs:
           echo "Hitting Trading Monitor..."
           curl -s https://trading-setup-monitor.onrender.com/ > /dev/null
           echo "✅ Trading Monitor pinged"
+      - name: Curl Hello TV
+        run: |
+          echo "Hitting Hello TV..."
+          curl -s https://hello-tv.onrender.com/ > /dev/null
+          echo "✅ Hello TV pinged"          
       
       - name: Job Complete
         run: echo "🎯 Both services pinged successfully at $(date)"
