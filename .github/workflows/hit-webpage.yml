@@ -15,11 +15,17 @@ jobs:
           curl -s https://onebyte-app-server.onrender.com/ > /dev/null
           echo "✅ OneByte App Server pinged"
 
-      - name: Curl Ludo Pie App Server
+      - name: Curl Ludo Pie Supabase App Server
         run: |
           echo "Hitting OneByte App Server..."
           curl -s https://ziqncznvqypzzovvpuxe.supabase.co/functions/v1/app_user_metrics > /dev/null
           echo "✅ Ludo Pie App Server pinged"
+
+      - name: Curl Ludo Pie Render App Server
+        run: |
+          echo "Hitting OneByte App Server..."
+          curl -s https://ludo-pie-backend-render.onrender.com/health > /dev/null
+          echo "✅ Ludo Pie Render App Server pinged"
       
       - name: Curl Trading Monitor
         run: |
